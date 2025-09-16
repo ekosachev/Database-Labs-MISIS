@@ -1,0 +1,4 @@
+SELECT TOP 10 PERCENT
+    Name
+FROM SalesLT.Product
+ORDER BY Weight DESC 

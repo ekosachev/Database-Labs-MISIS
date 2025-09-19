@@ -1,20 +1,14 @@
 SELECT
-    c.CompanyName,
-    a.AddressLine1,
-    a.City,
-    'Billing' as AddressType
+    c.CompanyName
 FROM SalesLT.Customer as c
 INNER JOIN SalesLT.CustomerAddress ca on c.CustomerID = ca.CustomerID
 INNER JOIN SalesLT.Address a on ca.AddressID = a.AddressID
 WHERE ca.AddressType = 'Main Office'
 EXCEPT
 SELECT
-    c.CompanyName,
-    a.AddressLine1,
-    a.City,
-    'Shipping' as AddressType
+    c.CompanyName
 FROM SalesLT.Customer as c
 INNER JOIN SalesLT.CustomerAddress ca on c.CustomerID = ca.CustomerID
 INNER JOIN SalesLT.Address a on ca.AddressID = a.AddressID
 WHERE ca.AddressType = 'Shipping'
-ORDER BY CompanyName, AddressType
+ORDER BY CompanyName
